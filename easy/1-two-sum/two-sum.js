@@ -1,6 +1,6 @@
 // Approach 1 - brute force.
 // Time: O(n^2)
-// Space: O()
+// Space: O(1)
 const twoSumBrute = (nums, target) => {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
@@ -17,7 +17,7 @@ const twoSumBrute = (nums, target) => {
 // Time: O(n)
 // Space: O(n)
 const twoSum = (nums, target) => {
-  const valuesToIndex = new Map();
+  const map = new Map();
 
   for (let i = 0; i < nums.length; i++) {
     let cur = nums[i];
@@ -25,12 +25,12 @@ const twoSum = (nums, target) => {
     // x = target - cur
     let x = target - cur;
 
-    if (valuesToIndex.has(x)) {
-      return [valuesToIndex.get(x), i];
+    if (map.has(x)) {
+      return [map.get(x), i];
     }
 
-    valuesToIndex.set(cur, i);
+    map.set(cur, i);
   }
 
-  return;
+  return [];
 };
